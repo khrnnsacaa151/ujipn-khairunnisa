@@ -1,76 +1,23 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="/css/dashboard.css">
-</head>
-<body>
+@extends('admin.layouts.templates')
 
-<div class="container">
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <img src="{{ asset('img/logopn.png') }}" alt="Logo">
-            Dashboard Admin
-        </div>
-
-        <ul class="sidebar-menu">
-    <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-        <a href="/admin/dashboard">Dashboard</a>
-    </li>
-
-    <li class="{{ request()->is('admin/siswa') ? 'active' : '' }}">
-        <a href="/admin/siswa">Data Siswa</a>
-    </li>
-
-    <li class="{{ request()->is('admin/aspirasi') ? 'active' : '' }}">
-        <a href="/admin/aspirasi">Data Aspirasi</a>
-    </li>
-
-    <li class="{{ request()->is('admin/kategori') ? 'active' : '' }}">
-        <a href="/admin/kategori">Kategori</a>
-    </li>
-
-    <li class="{{ request()->is('admin/laporan') ? 'active' : '' }}">
-        <a href="/admin/laporan">Laporan</a>
-    </li>
-</ul>
-    </div>
-
-    <!-- MAIN -->
-    <div class="main">
-
-        <!-- TOPBAR -->
-        <div class="topbar">
-    <h3>Dashboard Siswa</h3>
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit" class="logout-btn">Logout</button>
-    </form>
-</div>
-
-        <!-- CONTENT -->
-        <div class="content">
-
-            <!-- CARD INFO -->
+@section('content')
+        <!-- CARD INFO -->
             <div class="cards">
                 <div class="card">
-                    <h2>27</h2>
-                    <p>Total Siswa</p>
-                </div>
-                <div class="card">
-                    <h2>1</h2>
                     <p>Total Aspirasi</p>
+                    <h2>{{ $total_aspirasi }}</h2>
                 </div>
                 <div class="card">
-                    <h2>1</h2>
                     <p>Menunggu</p>
+                    <h2>{{ $aspirasi_menunggu }}</h2>
                 </div>
                 <div class="card">
-                    <h2>0</h2>
+                    <p>Diproses</p>
+                    <h2>{{ $aspirasi_diproses }}</h2>
+                </div>
+                <div class="card">
                     <p>Selesai</p>
+                    <h2>{{ $aspirasi_selesai }}</h2>
                 </div>
             </div>
 
@@ -80,27 +27,26 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Nama Siswa</th>
                             <th>Judul</th>
-                            <th>Siswa</th>
+                            <th>Kategori</th>
                             <th>Status</th>
-                            <th>Tanggal</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+
+                        @foreach ($aspirasi as $item)
                         <tr>
-                            <td>Kebersihan Toilet</td>
-                            <td>Siswa 1</td>
-                            <td><span class="status menunggu">Menunggu</span></td>
-                            <td>2026-01-19</td>
+                            <td>{{ $item->siswa->user->nama }}</td>
+                            <td>{{ $item->judul}}</td>
+                            <td>{{ $item->kategori->nama_kategori }}</td>
+                            <td><span class="badge {{ $item->status }}" style="text-transform: capitalize;">{{ $item->status }}</span></td>
                         </tr>
+                        @endforeach
+                        
                     </tbody>
                 </table>
             </div>
 
-        </div>
-    </div>
-
-</div>
-
-</body>
-</html>
+@endsection
