@@ -3,7 +3,7 @@
 @section('content')
 <div class="shadow p-3 row justify-content-center">
     <div class="col-10 p-3">
-         <h3 class="text-center mb-4">FROM TAMBAH DATA SISWA</h3>
+         <h3 class="text-center mb-4">FORM TAMBAH DATA SISWA</h3>
          <P class="lead mb-4">Silahkan isi data dalam form di bawah ini dengan benar :</P>
          <form action="{{ route('admin.tambah-siswa') }}" method="POST">
             @csrf

@@ -11,7 +11,7 @@ body {
 }
 
 /* ===== LAYOUT ===== */
-.container {
+.container-main {
     display: flex;
     min-height: 100vh;
 }
@@ -296,6 +296,9 @@ td {
 }
 .selesai {
     background: #27ae60;
+}
+.ditolak {
+    background: #d00303;
 }
 
 .user-menu {

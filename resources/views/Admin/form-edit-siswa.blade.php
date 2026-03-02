@@ -3,12 +3,12 @@
 @section('content')
 <div class="shadow p-3 row justify-content-center">
     <div class="col-10 p-3">
-         <h3 class="text-center mb-4">FROM EDIT DATA SISWA</h3>
+         <h3 class="text-center mb-4">FORM EDIT DATA SISWA</h3>
          <P class="lead mb-4">Silahkan isi data dalam form di bawah ini dengan benar :</P>
          <form action="{{ route('admin.edit-siswa') }}" method="POST">
             @csrf
             @method('PUT')
-            <input type="hidden" name="id" value=""{{ $siswa->id}}>
+            <input type="hidden" name="id" value="{{ $siswa->id}}">
             <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="form-label col-3">Nama</label>
                 <div class="col-9">

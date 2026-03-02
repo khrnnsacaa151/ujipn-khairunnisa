@@ -24,8 +24,6 @@
 
         <!-- DROPDOWN -->
         <div class="dropdown" id="userDropdown">
-            <a href="#">Profile</a>
-
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="logout-link">Logout</button>

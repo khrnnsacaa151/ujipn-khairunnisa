@@ -31,7 +31,6 @@
                             <th>Judul</th>
                             <th>Kategori</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +43,7 @@
                             <td><span class="badge {{ $item->status }}" style="text-transform: capitalize;">{{ $item->status }}</span></td>
                         </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
             </div>

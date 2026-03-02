@@ -10,7 +10,7 @@
 
 <body>
 
-<div class="container">
+<div class="container-main">
 
     @include('admin.layouts.sidebar')
 
@@ -32,12 +32,7 @@
                     <span>{{ auth()->user()->username }}</span>
                     <i class="fa-solid fa-caret-down"></i>
                 </div>
-
                 <div class="dropdown" id="userDropdown">
-                    <a href="/profil">
-                    <i class="fa fa-user"></i> Profile
-                    </a>
-
                 <form action="{{ route('logout') }}" method="POST">
                      @csrf
                         <button type="submit">
@@ -64,6 +59,9 @@ function toggleDropdown() {
 </div>
 
     <script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <script src="/js/jquery-4.0.0.min.js"></script>
+    @yield('script')
 </body>
 
 </html>

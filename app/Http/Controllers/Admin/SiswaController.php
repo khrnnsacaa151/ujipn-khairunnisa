@@ -80,7 +80,7 @@ class SiswaController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'email' => 'required|email|unique:users,email,' . $user_id,
-            'username' => 'required|max:20unique:users,username,' . $user_id,
+            'username' => 'required|max:20|unique:users,username,' . $user_id,
             'nis' => 'required|integer|unique:siswa,nis,' . $id,
             'kelas' => 'required',
             'jurusan' => 'required',
